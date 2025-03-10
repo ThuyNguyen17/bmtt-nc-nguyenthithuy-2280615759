@@ -1,3 +1,12 @@
+  
+# ===========================
+# Example: "plain_text" : "HUTECH","key": "ABC"
+# mã hóa và giải mã văn bản bằng cách sử dụng một khóa (key) lặp lại, dịch chuyển các ký tự của văn bản theo giá trị của các ký tự trong khóa
+# H => key_shift=0, encrypted_text= H ((72-65+0)%26+65=72)
+# U => key_shift=1, encrypted_text= HV ((85-65+1)%26+65=86)
+# Cipher Text: HVVEDJ
+# ===========================
+
 class VigenereCipher:
     def __init__(self):
         pass

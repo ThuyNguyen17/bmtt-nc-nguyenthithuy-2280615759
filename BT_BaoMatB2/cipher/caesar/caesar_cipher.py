@@ -1,5 +1,12 @@
 from cipher.caesar import ALPHABET
-
+# ===========================
+# Example: "HELLO"  key = 3
+#         H  E L  L  O
+#         7  4 11 11 14
+# + key   10 7 14 14 17
+# % 26    10 7 14 14 17
+# KQ:     K  H O  O  R
+# ===========================
 class CaesarCipher:
     def __init__(self):
         self.alphabet = ALPHABET

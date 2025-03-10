@@ -1,3 +1,11 @@
+# ===========================
+# Example: "HUTECH"  KEY = 3
+# viết lần lượt từng ký tự vào bảng, từ trái sang phải, trên xuống dưới, mỗi hàng có 3 cột.
+# H U T 
+# E C H
+# Cipher Text: HEUCTH
+# ===========================
+
 class TranspositionCipher:
     def __init__(self):
         pass
@@ -10,7 +18,7 @@ class TranspositionCipher:
                 encrypted_text += text[pointer]
                 pointer += key
         return encrypted_text
-    
+ #****   
     def decrypt (self,text,key):
         decrypted_text = ['']*key
         row,col =0,0
