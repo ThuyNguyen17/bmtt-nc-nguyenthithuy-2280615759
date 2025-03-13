@@ -1,4 +1,4 @@
-from cipher.caesar import ALPHABET
+from caesar.alphabet import ALPHABET
 # ===========================
 # Example: "HELLO"  key = 3
 #         H  E L  L  O

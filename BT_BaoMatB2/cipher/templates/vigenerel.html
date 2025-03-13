@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caesar Cipher</title>
+    <title>Vigenerel cipher</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -63,19 +63,19 @@
 </head>
 <body>
     <div class="container">
-        <h2>Caesar Cipher</h2>
+        <h2>Vigenerel cipher</h2>
         <table>
             <tr>
                 <td><strong>Encrypt Cipher</strong></td>
             </tr>
             <tr>
                 <td>
-                    <form method="post" action="/Lab02/encrypt">
+                    <form method="post" action="/vigenerel/encrypt">
                         <label for="form-label">Plain Text:</label>
                         <input type="text" class="form-control" name="InputPlainText" placeholder="Input Plain Text" required autofocus>
                         
                         <label for="form-label">Key:</label>
-                        <input type="number" class="form-control" name="InputKeyPlain" placeholder="Input Key" required>
+                        <input type="text" class="form-control" name="InputKeyPlain" placeholder="Input Key" required>
                         
                         <button type="submit">Encrypt</button>
                     </form>
@@ -86,12 +86,12 @@
             </tr>
             <tr>
                 <td>
-                    <form method="post" action="/Lab02/decrypt">
+                    <form method="post" action="/vigenerel/decrypt">
                         <label for="form-label">Cipher Text:</label>
                         <input type="text" class="form-control" name="InputCipherText" placeholder="Input Cipher Text" required autofocus>
                         
                         <label for="form-label">Key:</label>
-                        <input type="number" class="form-control" name="InputKeyCipher" placeholder="Input Key" required>
+                        <input type="text" class="form-control" name="InputKeyCipher" placeholder="Input Key" required>
                         
                         <button type="submit">Decrypt</button>
                     </form>
