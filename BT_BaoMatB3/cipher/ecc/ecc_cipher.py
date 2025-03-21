@@ -15,17 +15,19 @@ class ECCCipher:
 
     def load_keys(self):
         with open('cipher/ecc/keys/privateKey.pem', 'rb') as p:
-            sk = ecdsa. SigningKey.from_pem(p.read())
-        with open('cipher/ecc/keys/publickey.pem', 'rb') as p:
-            vk = ecdsa. VerifyingKey.from_pem(p.read())
-        return sk, vk
+            sk = ecdsa.SigningKey.from_pem(p.read())
+        with open('cipher/ecc/keys/publicKey.pem', 'rb') as p:
+            vk = ecdsa.VerifyingKey.from_pem(p.read())  
+        return sk, vk  
+
     
     def sign(self, message, key):
         return key.sign(message.encode('ascii'))
 
-    def verify(self, message, signature, key):
-        vk = self.load_keys()
+    def verify(self, message, signature, key=None):
+        if key is None:
+            _, key = self.load_keys()  # Chỉ lấy `vk`
         try:
-            return vk.verify (signature, message.encode('ascii'))
+            return key.verify(signature, message.encode('ascii'))
         except ecdsa.BadSignatureError:
             return False

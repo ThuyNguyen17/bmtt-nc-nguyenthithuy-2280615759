@@ -1,6 +1,15 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
-from ui.rsa import Ui_MainWindow
+import os
+
+# Lấy đường dẫn thư mục cha của thư mục hiện tại (chính là `BT_BaoMatB3`)
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
+
+# Thêm vào sys.path nếu chưa có
+if BASE_DIR not in sys.path:
+    sys.path.append(BASE_DIR)
+
+from ui.rsa import Ui_MainWindow  # Import sau khi đã chỉnh sys.path
 import requests
 
 class MyApp(QMainWindow):
@@ -8,14 +17,14 @@ class MyApp(QMainWindow):
         super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.ui.pushButton.clicked.connect(self.call_api_gen_keys)
-        self.ui.pushButton_2.clicked.connect(self.call_api_encrypt)
-        self.ui.pushButton_3.clicked.connect(self.call_api_decrypt)
-        self.ui.pushButton_4.clicked.connect(self.call_api_sign)
-        self.ui.pushButton_5.clicked.connect(self.call_api_verify)
+        self.ui.btgenerate_keys.clicked.connect(self.call_api_gen_keys)
+        self.ui.btEncrypt.clicked.connect(self.call_api_encrypt)
+        self.ui.btDecrypt.clicked.connect(self.call_api_decrypt)
+        self.ui.btSign.clicked.connect(self.call_api_sign)
+        self.ui.btVerify.clicked.connect(self.call_api_verify)
+
 
     def show_error(self, error_msg):
-        """ Hiển thị lỗi trong hộp thoại QMessageBox """
         msg = QMessageBox()
         msg.setIcon(QMessageBox.Critical)
         msg.setText(f"Error: {error_msg}")
@@ -50,7 +59,7 @@ class MyApp(QMainWindow):
 
     def call_api_decrypt(self):
         url = "http://127.0.0.1:5000/api/rsa/decrypt"
-        payload = {"cipher": self.ui.txt_cipher_text.toPlainText(), "key_type": "private"}
+        payload = {"ciphertext": self.ui.txt_cipher_text.toPlainText(), "key_type": "private"}
         try:
             response = requests.post(url, json=payload)
             if response.status_code == 200:
@@ -83,8 +92,17 @@ class MyApp(QMainWindow):
             response = requests.post(url, json=payload)
             if response.status_code == 200:
                 data = response.json()
-                msg_text = "Verified successfully!!" if data["is_verified"] else "Verified failed!!"
-                QMessageBox.information(self, "Verification", msg_text)
+                if data["is_verified"] :
+                    msg = QMessageBox()
+                    msg.setIcon(QMessageBox.Information) 
+                    msg.setText("Verified successfully!!")
+                    msg.exec_()
+                    self.ui.txt_info.setText("Day la chu ky cua toi")
+                else:
+                    msg = QMessageBox()
+                    msg.setIcon(QMessageBox.Information) 
+                    msg.setText("Verified failed!!")
+                    msg.exec_()
             else:
                 self.show_error("Error while calling API")
         except requests.exceptions.RequestException as e:
