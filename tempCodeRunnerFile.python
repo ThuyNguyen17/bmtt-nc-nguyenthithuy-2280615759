@@ -1,0 +1,10 @@
+import json
+
+file_path = "arxiv-metadata-oai-snapshot.json"
+
+with open(file_path, "r", encoding="utf-8") as f:
+    for i, line in enumerate(f):
+        data = json.loads(line)  # Chuyển mỗi dòng thành dict
+        print(data)  # Xử lý dữ liệu từng dòng
+        if i == 5:  # Chỉ đọc 5 dòng đầu để kiểm tra
+            break
