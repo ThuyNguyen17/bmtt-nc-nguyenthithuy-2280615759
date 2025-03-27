@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playfair cipher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        h2 {
+            text-align: center;
+            color: #007BFF;
+        }
+        table {
+            width: 100%;
+            margin: 10px 0;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        label {
+            margin-right: 10px;
+        }
+        input[type="text"],
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Playfair cipher</h2>
+        <table>
+            <tr>
+                <td><strong>Encrypt Cipher</strong></td>
+            </tr>
+            <tr>
+                <td>
+                    <form method="post" action="/playfair/encrypt">
+                        <label for="form-label">Plain Text:</label>
+                        <input type="text" class="form-control" name="InputPlainText" placeholder="Input Plain Text" required autofocus>
+                        
+                        <label for="form-label">Key:</label>
+                        <input type="text" class="form-control" name="InputKeyPlain" placeholder="Input Key" required>
+                        
+                        <button type="submit">Encrypt</button>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Decrypt Cipher</strong></td>
+            </tr>
+            <tr>
+                <td>
+                    <form method="post" action="/playfair/decrypt">
+                        <label for="form-label">Cipher Text:</label>
+                        <input type="text" class="form-control" name="InputCipherText" placeholder="Input Cipher Text" required autofocus>
+                        
+                        <label for="form-label">Key:</label>
+                        <input type="text" class="form-control" name="InputKeyCipher" placeholder="Input Key" required>
+                        
+                        <button type="submit">Decrypt</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
