@@ -53,7 +53,7 @@
      <string>Information:</string>
     </property>
    </widget>
-   <widget class="QPlainTextEdit" name="txt_sign">
+   <widget class="QPlainTextEdit" name="txt_info">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -63,7 +63,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPlainTextEdit" name="txt_info">
+   <widget class="QPlainTextEdit" name="txt_sign">
     <property name="geometry">
      <rect>
       <x>120</x>
