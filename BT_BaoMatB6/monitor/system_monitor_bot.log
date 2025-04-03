@@ -1,0 +1,4 @@
+2025-04-03 14:20:58,451 - INFO - System Monitor: \U0001f4e1 B\u1eaft \u0111\u1ea7u giám sát h\u1ec7 th\u1ed1ng...
+2025-04-03 14:20:59,458 - INFO - CPU: Usage: 28.5%
+2025-04-03 14:20:59,459 - INFO - Memory: Usage: 84.3%
+2025-04-03 14:21:02,776 - INFO - HTTP Request: POST https://api.telegram.org/bot6808243924:AAFJCe4KtZVGPhz2_D074K148ZJOhsNamQQ/sendMessage "HTTP/1.1 401 Unauthorized"
